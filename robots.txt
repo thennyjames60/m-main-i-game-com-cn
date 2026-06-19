@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thennyjames60.github.io/m-main-i-game-com-cn/sitemap.xml
