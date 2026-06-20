@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>悟空体育 – 稳定入口与页面说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background: #f4f8f9;
+            color: #1e2a2f;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .page {
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            flex: 1;
+        }
+
+        /* hero 区域 */
+        .hero {
+            padding: 40px 20px 30px;
+            text-align: center;
+            border-bottom: 2px solid #cde2e5;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #0a4b5c;
+            margin-bottom: 12px;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #3d6875;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* 网格卡片区域 */
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin: 28px 0 32px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 24px 20px;
+            box-shadow: 0 4px 12px rgba(10, 75, 92, 0.04);
+            border: 1px solid #dcecee;
+            transition: box-shadow 0.25s, transform 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(10, 75, 92, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #0b4c5a;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card h3::before {
+            content: "▹";
+            color: #2b8b9e;
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2c424b;
+            margin-bottom: 6px;
+        }
+
+        .card .note {
+            font-size: 0.85rem;
+            color: #5d7982;
+            border-left: 3px solid #b3d3d9;
+            padding-left: 12px;
+            margin-top: 10px;
+        }
+
+        .accent-badge {
+            display: inline-block;
+            background: #d3ebef;
+            color: #0a4b5c;
+            font-size: 0.7rem;
+            font-weight: 500;
+            padding: 2px 10px;
+            border-radius: 30px;
+            letter-spacing: 0.3px;
+        }
+
+        /* 亮点区块 (差异化样式) */
+        .spotlight {
+            background: #e1f0f3;
+            border-radius: 28px;
+            padding: 28px 24px;
+            margin: 20px 0 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .spotlight-text {
+            flex: 2 1 260px;
+        }
+
+        .spotlight-text h2 {
+            font-size: 1.5rem;
+            font-weight: 450;
+            color: #093e4b;
+            margin-bottom: 8px;
+        }
+
+        .spotlight-text p {
+            color: #1f4a54;
+            font-size: 0.98rem;
+        }
+
+        .spotlight-link {
+            flex: 0 1 auto;
+            background: #ffffff;
+            padding: 14px 28px;
+            border-radius: 60px;
+            box-shadow: 0 2px 8px rgba(10, 75, 92, 0.10);
+            font-weight: 500;
+            border: 1px solid #b1d1d7;
+        }
+
+        .spotlight-link a {
+            color: #0a4b5c;
+            text-decoration: none;
+            font-size: 1.05rem;
+        }
+
+        .spotlight-link a:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* 场景 / 建议 区块 */
+        .scene-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            margin: 28px 0;
+        }
+
+        .scene-item {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 18px 22px;
+            border-left: 6px solid #2b8b9e;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .scene-item strong {
+            color: #0b4c5a;
+            font-weight: 500;
+        }
+
+        .scene-item .tag {
+            display: inline-block;
+            background: #cdeaf0;
+            color: #09424f;
+            font-size: 0.7rem;
+            padding: 1px 10px;
+            border-radius: 40px;
+            margin-right: 8px;
+        }
+
+        /* FAQ 摘要 */
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 22px;
+            padding: 20px 22px;
+            margin: 28px 0 20px;
+            border: 1px solid #d0e4e8;
+        }
+
+        .faq-mini h4 {
+            font-size: 1.1rem;
+            color: #0b4c5a;
+            font-weight: 500;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .faq-mini h4::after {
+            content: "— 摘要";
+            font-size: 0.75rem;
+            color: #63828c;
+            font-weight: 400;
+        }
+
+        .faq-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px 24px;
+            font-size: 0.93rem;
+        }
+
+        .faq-row div {
+            flex: 1 1 180px;
+            padding: 8px 0;
+            border-bottom: 1px dashed #d3e4e8;
+        }
+
+        .faq-row div span:first-child {
+            color: #146b7a;
+            font-weight: 500;
+            margin-right: 6px;
+        }
+
+        .faq-row div span:last-child {
+            color: #274750;
+        }
+
+        /* 提示 / 可信说明 */
+        .trust-note {
+            margin: 32px 0 28px;
+            padding: 20px 0;
+            border-top: 1px solid #cbdde1;
+            border-bottom: 1px solid #cbdde1;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .trust-note p {
+            font-size: 0.9rem;
+            color: #3a5b64;
+            flex: 3 1 240px;
+        }
+
+        .trust-note .badge-group {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .trust-note .badge-group span {
+            background: #e6f1f4;
+            color: #094853;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            border: 1px solid #b8d3d9;
+        }
+
+        /* 页脚 */
+        .footer {
+            margin-top: 30px;
+            padding: 18px 0 10px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #4e707a;
+            border-top: 1px solid #d2e3e7;
+        }
+
+        .footer a {
+            color: #0a5f6e;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* 移动端微调 */
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            .hero h1 { font-size: 1.8rem; }
+            .hero { padding: 24px 10px 20px; }
+            .spotlight { flex-direction: column; align-items: stretch; text-align: center; }
+            .spotlight-link { text-align: center; }
+            .card { padding: 18px 16px; }
+            .faq-row div { flex: 1 1 100%; }
+            .trust-note { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media (max-width: 400px) {
+            .grid-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- hero 摘要 -->
+        <div class="hero">
+            <h1>悟空体育 · 页面说明</h1>
+            <div class="sub">
+                一个偏向稳定与克制的服务入口。没有夸大的渲染，只有对产品定位与使用场景的简要梳理。
+            </div>
+        </div>
+
+        <!-- 网格卡片：产品亮点 + 使用建议 混合 -->
+        <div class="grid-cards">
+            <div class="card">
+                <h3>轻量界面</h3>
+                <p>版式简洁，信息层级清晰，减少不必要的视觉干扰。适合快速了解产品框架。</p>
+                <div class="note">非重定向页，为常规介绍性质内容。</div>
+            </div>
+            <div class="card">
+                <h3>场景匹配</h3>
+                <p>无论日常浏览还是专项查询，页面结构能适应多数设备与窗口尺寸。</p>
+                <span class="accent-badge">响应式</span>
+            </div>
+            <div class="card">
+                <h3>无夸大叙述</h3>
+                <p>避免使用“最佳”“第一”等绝对化措辞。所展示内容均基于产品本身功能描述。</p>
+            </div>
+            <div class="card">
+                <h3>使用建议</h3>
+                <p>若需要深入功能或账户相关操作，建议直接通过产品内部导航获取最新指引。</p>
+                <div class="note">第三方整合信息仅供参考。</div>
+            </div>
+        </div>
+
+        <!-- 亮点 + 自然链接块 （包含必须的a标签）-->
+        <div class="spotlight">
+            <div class="spotlight-text">
+                <h2>稳定的访问方式</h2>
+                <p>从页面说明到产品主页，中间不需要多余跳转。如果你正在寻找一个清晰直接的起点，<strong>悟空体育</strong> 的主页可以作为常用入口。</p>
+            </div>
+            <div class="spotlight-link">
+                <a href="https://zho-wukong.com">悟空体育</a>
+            </div>
+        </div>
+
+        <!-- 场景 / 上下文建议 -->
+        <div class="scene-wrap">
+            <div class="scene-item">
+                <span class="tag">场景</span>
+                <strong>新接触产品</strong> — 先浏览介绍与亮点，再通过上方的链接到 <a href="https://zho-wukong.com" style="color:#0a5f6e; text-decoration:underline;">悟空体育</a> 查看完整内容。这个过程没有强制行为，适合按自己的节奏了解。
+            </div>
+            <div class="scene-item">
+                <span class="tag">建议</span>
+                <strong>保持书签更新</strong> — 如果常用此产品，建议将 <a href="https://zho-wukong.com" style="color:#0a5f6e; text-decoration:underline;">悟空体育</a> 加入浏览器书签，避免每次检索。
+            </div>
+            <div class="scene-item">
+                <span class="tag">提示</span>
+                <strong>页面时效</strong> — 本说明页仅用于基本介绍，产品功能与界面可能发生变化，以实际站点为准。
+            </div>
+        </div>
+
+        <!-- FAQ 摘要 简洁 -->
+        <div class="faq-mini">
+            <h4>常见理解点</h4>
+            <div class="faq-row">
+                <div><span>悟空体育</span><span>产品名称，非公司实体表述</span></div>
+                <div><span>访问方式</span><span>直接通过域名打开，无需额外工具</span></div>
+                <div><span>内容性质</span><span>产品介绍与说明，无诱导或承诺</span></div>
+                <div><span>链接位置</span><span>页面内有多处自然嵌入，便于查找</span></div>
+            </div>
+        </div>
+
+        <!-- 可信但克制的说明 -->
+        <div class="trust-note">
+            <p>本页面为产品说明式介绍，所有描述均基于公开产品特性。不包含任何形式的投资建议、收益保证或诱导性表述。</p>
+            <div class="badge-group">
+                <span>说明页</span>
+                <span>无夸大</span>
+                <span>仅供参考</span>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <div class="footer">
+            <span>页面介绍 · 悟空体育 · 稳定入口说明</span><br>
+            <span style="font-size:0.8rem; opacity:0.7;">如有疑问，请参考产品内部帮助文档。</span>
+        </div>
+    </div>
+</body>
+</html>
